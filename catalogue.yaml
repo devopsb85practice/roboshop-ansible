@@ -52,13 +52,13 @@
     ansible.builtin.dnf:
       name: mongodb-mongosh
       state: present
-  - name: checking the productes loaded or not
+  - name: checking the products loaded or not
     ansible.builtin.command: mongosh --host mongodb.prasannadevops.online --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_output
   - name: printing the catalogue catalogue_output
     ansible.builtin.debug:
       msg: "{{ catalogue_output }}"
-  - name: loading the productes
+  - name: loading the products
     ansible.builtin.shell: mongosh --host mongodb.prasannadevops.online </app/db/master-data.js
     when: catalogue_output.stdout | int < 0
   
