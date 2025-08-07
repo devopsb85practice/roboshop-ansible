@@ -10,4 +10,10 @@
     ansible.builtin.dnf:
       name: nodejs
       state: present
+  - name: creating a system user
+    ansible.builtin.user:
+      name: roboshop
+      shell: /sbin/nologin
+      
+
       
