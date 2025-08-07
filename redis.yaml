@@ -13,9 +13,9 @@
   - name: allowing remote connections
     ansible.builtin.lineinfile:
       path: /etc/redis/redis.conf
-      regexp: 'bind'
-      line: 'bind 0.0.0.0'
-  - name: diable protected mode
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+  - name: disable protected mode
     ansible.builtin.lineinfile:
       path: /etc/redis/redis.conf
       regexp: 'protected-mode'
