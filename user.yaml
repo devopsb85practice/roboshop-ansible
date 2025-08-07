@@ -10,14 +10,17 @@
     ansible.builtin.dnf:
       name: nodejs
       state: present
-  - name: creating a system user
-    ansible.builtin.user:
-      name: roboshop
-      shell: /sbin/nologin
   - name: creating app directory
     ansible.builtin.file:
      path: /app 
      state: directory
+  - name: creating a system user
+    ansible.builtin.user:
+      name: roboshop
+      shell: /sbin/nologin
+      system: true
+      home: /app
+
 
   - name: downloading the user file
     ansible.builtin.get_url:
