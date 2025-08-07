@@ -6,14 +6,17 @@
     ansible.builtin.dnf:
       name: maven
       state: present
-  - name: create the system user
-    ansible.builtin.user:
-      name: roboshop
-      shell: /sbin/nologin
   - name: creating the app directory
     ansible.builtin.file:
       src: /app
       state: directory
+  - name: create the system user
+    ansible.builtin.user:
+      name: roboshop
+      shell: /sbin/nologin
+      system: true
+      home: /app
+
   - name: downloading the shipping code
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/shipping-v3.zip
