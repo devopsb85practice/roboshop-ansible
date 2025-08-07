@@ -8,7 +8,7 @@
       state: present
   - name: creating the app directory
     ansible.builtin.file:
-      src: /app
+      path: /app
       state: directory
   - name: create the system user
     ansible.builtin.user:
@@ -28,6 +28,10 @@
       remote_src: yes
   - name: install maven dependencies
     ansible.builtin.command: mvn clean package 
+    args:
+      chdir: /app
+  - name: rename jar file
+    ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
     args:
       chdir: /app
 
