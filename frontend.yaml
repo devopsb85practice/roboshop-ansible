@@ -12,8 +12,12 @@
       state: present
   - name: removing the default content
     ansible.builtin.file:
-      path: /usr/share/nginx/html/*
+      path: /usr/share/nginx/html
       state: absent
+  - name: removing the default content
+    ansible.builtin.file:
+      path: /usr/share/nginx/html
+      state: directory
   - name: downloading the frontend code
     ansible.builtin.get_url:
       url: https://roboshop-artifacts.s3.amazonaws.com/frontend-v3.zip
@@ -21,5 +25,5 @@
   - name: unzipping the frontend code
     ansible.builtin.unarchive:
       src: /tmp/frontend.zip
-      dest: /app 
+      dest: /usr/share/nginx/html
       remote_src: yes
