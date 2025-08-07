@@ -60,5 +60,5 @@
       msg: "{{ catalogue_output }}"
   - name: loading the productes
     ansible.builtin.shell: mongosh --host mongodb.prasannadevops.online </app/db/master-data.js
-    when: catalogue_output_stdout | int < 0
+    when: catalogue_output.stdout | int < 0
   
