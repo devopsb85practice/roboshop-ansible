@@ -14,7 +14,7 @@
     ansible.builtin.lineinfile:
       path: /etc/redis/redis.conf
       regexp: '127.0.0.1'
-      replace: 0.0.0.0
+      replace: '0.0.0.0'
   - name: diable protected mode
     ansible.builtin.lineinfile:
       path: /etc/redis/redis.conf
