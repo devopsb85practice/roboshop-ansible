@@ -46,7 +46,7 @@
 
   - name: copying the shipping service file
     ansible.builtin.copy:
-      name: shipping.service
+      src: shipping.service
       dest: /etc/systemd/system/shipping.service
 
   - name: daemon-reload the service

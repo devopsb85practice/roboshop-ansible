@@ -37,7 +37,7 @@
       chdir: /app
   - name: copy payment.service
     ansible.builtin.copy:
-      name: payment.service
+      src: payment.service
       dest: /etc/system/systemd/payment.service
   - name: daemon-reload
     ansible.builtin.systemd_service:
