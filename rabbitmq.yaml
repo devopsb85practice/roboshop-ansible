@@ -15,10 +15,14 @@
       name: rabbitmq-server
       state: started
       enabled: yes
-  - name: adding the user
-    community.mysql.mysql_info:
-      login_user: shipping
-      login_password: RoboShop@1
-      login_host: mysql.prasannadevops.online
-      login_db: cities
-      
+  - name: create rabbitmq user
+    community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    permissions:
+      - vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+    state: present
+
