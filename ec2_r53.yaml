@@ -2,10 +2,10 @@
   hosts: local
   connection: local
   vars:
-  instances:
-  - mysql
-  - frontend
-  - backend
+    instances:
+    - mysql
+    - frontend
+    - backend
   subnet_id: subnet-03baa930fd25ac0a1
   sg_id: sg-0ed01617e03501426
 
